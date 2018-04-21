@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>UniIntern Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 50%;
+      margin-left: 25%;
+  }
+  body {
+      background-color: burlywood;
+  }
+  .team img{
+      width: 200px;
+      border-radius: 50%;
+      border-width: 3px;
+      border-color: black;
+      border-style: ridge;
+  }
+  </style>
+</head>
+<body background="media/bc.jpg">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'internship:index' %}">UniIntern</a>
+        </div>
+            <ul class="navbar-nav">
+                <l1 class="nav-item">
+                    <a class="nav-link" href="/userprofile/login">
+                        <span class="glyphicon glyphicon-logout" aria-hidden="true"></span>&nbsp
+                        Login
+                    </a>
+                </l1>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="media/chicago.jpg" alt="internship" width="" height="">
+      <div class="carousel-caption">
+          <b><h3><span style="background-color: #000;">Manage the Internship</span></h3></b>
+        <p>Post all the Internships offered by companies to your university.</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="media/la.jpg" alt="Chicago" width="" height="">
+      <div class="carousel-caption">
+          <h3><span style="background-color: #000;">Student Profile</span></h3>
+        <p>Let students make their profile and know about Internships</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="media/ny.jpg" alt="" width="" height="">
+      <div class="carousel-caption">
+          <h3><span style="background-color: #000;">Manage your infrastructure</span></h3>
+        <p>Make best of your university, visible to companies</p>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+<div class="jumbotron jumbotron-fluid" style="margin:0%;">
+    <div class="container">
+        <h2>About UniIntern</h2>      
+        <p>The aim for the UniIntern is to manage the internship process in the university effectively. This website is aimed at 
+           university students, companies and as well as the university authorities as they are the key entities involved in the internship process. 
+           This project is an ERP system for the university to manage the same. The key resources here are the internship, infrastructure, students, 
+           and the companies.
+        </p>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid team" style="background-color: darkolivegreen; margin: 0%; color: beige;">
+    <div class="container">
+        <h2 style="color: whitesmoke;">Team</h2>
+        <div class="container-fluid">
+        <div class="row"  style="text-align: center;">
+            <div class="col">
+                <img src="media/nandit.jpg" alt="nandit mehra">
+                <h4>Nandit Mehra</h4>
+            </div>
+            <div class="col">
+                <img src="media/aashish.jpg" alt="aashish">
+                <h4>Aashish Sachdeva</h4>
+            </div>
+            <div class="col">
+                <img src="media/jasjot.jpg" alt="jasjot">
+                <h4>Jasjot Singh</h4>
+            </div>
+            <div class="col">
+                <img src="media/romit.jpg" alt="Romit">
+                <h4>Romit Bhattacharyya</h4>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<footer style="text-align: center; padding: 5%; color: white;">
+    <p>UniIntern 2018</p>
+    <p>BML Munjal University, Gurgaon</p>
+</footer>
+</body>
+</html>

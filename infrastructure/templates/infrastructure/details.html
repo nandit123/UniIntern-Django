@@ -1,0 +1,22 @@
+{% extends 'infrastructure/base.html' %}
+{% block body %}
+<style>
+    body {
+        background-color: lightgrey;
+    }
+</style>
+<div class="container">
+    <img src="{{ lab.lab_logo.url }}" style="width: 150px; margin: 3%;">
+</div>
+
+    {% for p in lab.studentproject_set.all %}
+        <div class="container" style="background-color: white;  margin: 3%; padding: 3%;">
+            <h4><strong>{{ p.title }} ( by @{{ p.user }} )</strong></h4><br>
+            <img src="{{ p.project_picture.url }}" style="width:200px; height: auto; float: left; margin-right: 2%;">
+            <h5>Mentored by <u>{{ p.mentor }}</u></h5>
+            <h5 style="color: brown;"><i>{{ p.domain }}</i></h5>
+            <h5>{{ p.description }}</h5>
+            <br>
+        </div>
+    {% endfor %}
+{% endblock %}

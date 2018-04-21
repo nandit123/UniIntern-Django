@@ -1,0 +1,63 @@
+{% extends 'infrastructure/base.html' %}
+{% block body %}
+<h3 style="color: brown;margin: 1%;">Labs</h3>
+    {% for l in all_labs %}
+        <div class="container">
+
+          <div class="card" style="width:250px; height: auto; float: left; margin: 3%;">
+            <img class="card-img-top" src="{{ l.lab_logo.url }}" alt="Card image" style="width:100%; height: 150px;">
+            <div class="card-body">
+              <h4 class="card-title">{{ l.name }}</h4>
+                <h6>{{ l.department }}</h6>
+              <p class="card-text">{{ l.description }}</p>
+              {% if user.username == 'admin' %}
+              <a href="{% url 'infrastructure:lab-update' l.id%}">
+                  <button type="submit" class="btn btn-secondary">Update</button>
+              </a>
+              <form action="{% url 'infrastructure:lab-delete' l.id%}" method="post" style="display: inline;">
+                  {% csrf_token %}
+                  <input type="hidden" name="lab_id" value="{{ l.id }}"/>
+                  <button type="submit" class="btn btn-light">Delete</button>
+              </form>
+                {% endif %}
+            </div>
+              <a href="{{ l.id }}">
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 3%;">See Projects here</button>
+              </a>
+          </div>
+        </div>
+    {% endfor %}
+        <div class="container" style="width: 100%; float: left; color: white;">
+           <h3 style="color: brown;">Other Infrastructure</h3>
+            <div class="card img-fluid" style="float:left; width:30%; margin-left: 10%;">
+                <img class="card-img-top" src="/media/hall.jpg" alt="Card image" style="height: 300px; width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">World Class Hall</h4>
+                </div>
+            </div>
+            <div class="card img-fluid" style="float:left; width:30%">
+                <img class="card-img-top" src="/media/gym.jpg" alt="Card image" style="height: 300px; width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">Gym</h4>
+                </div>
+            </div>
+            <div class="card img-fluid" style="float:left; width:30%">
+                <img class="card-img-top" src="/media/mess.jpg" alt="Card image" style="height: 300px; width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">Best Mess</h4>
+                </div>
+            </div>
+            <div class="card img-fluid" style="float:left; width:45%; margin-left: 10%; color: black;">
+                <img class="card-img-top" src="/media/sports.jpg" alt="Card image" style="width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">Sports</h4>
+                </div>
+            </div>
+            <div class="card img-fluid" style="float:left; width:45%; color: black">
+                <img class="card-img-top" src="/media/library.jpg" alt="Card image" style="width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">World Class Library</h4>
+                </div>
+            </div>
+        </div>
+{% endblock %}

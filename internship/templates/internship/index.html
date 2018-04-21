@@ -1,0 +1,27 @@
+{% extends 'internship/base.html' %}
+{% block body %}
+<div class="container">
+<h3 style="color: brown;">All Companies</h3>
+        {% for company in all_companies %}
+            <div class="card" style="width: 250px; float: left; height: auto; margin: 3%;">
+                <img class="card-img-top" src="{{ company.company_logo.url }}" alt="company logo" style="width: 100%; height: 200px">
+                <div class="card-body">
+                    <h3 class="card-title"><strong>{{company.name}}</strong></h3>
+                    {% if user.username == 'admin' %}
+                    <a href="{% url 'internship:company-update' company.id%}">
+                        <button class="btn btn-secondary" type="submit">Update</button>
+                    </a>
+                    <form action="{% url 'internship:company-delete' company.id%}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="company_id" value="{{ company.id }}"/>
+                        <button class="btn btn-light" type="submit">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <a class="btn btn-primary" href="{% url 'internship:details' company.id %}">See Openings</a>
+            </div>
+        {% endfor %}
+</div>
+
+{% endblock %}
+
