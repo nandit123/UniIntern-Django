@@ -34,6 +34,7 @@ LOGIN_REDIRECT_URL = '/userprofile/'
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+# to run the local email server, open a new terminal and type this "python3 -m smtpd -n -c DebuggingServer localhost:1025"
 
 # Application definition
 
